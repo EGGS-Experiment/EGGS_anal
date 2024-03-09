@@ -3,10 +3,13 @@
 %figure;histogram(data(:,2))
 clear;
 
+%% CONFIGURE
 % file/display
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-07'; 
-filenames=[dir(fullfile(date_path, '*51043*.h5'))];
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51120';
 
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
 Fignum=273;
 
 % remove data consisting of consecutive 0s

@@ -1,9 +1,13 @@
 %% SQUEEZING RABI - FIT RABI FLOPPING FOR SQUEEZED/DISPLACED STATES
 %figure;plot(data(:,2))
 %figure;histogram(data(:,2))
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-07'; 
-filenames=[dir(fullfile(date_path, '*50915*.h5'))];
 
+%% CONFIGURE
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51120';
+
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
 
 
 clear data data1 state delay LIF

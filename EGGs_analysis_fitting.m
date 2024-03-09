@@ -5,9 +5,12 @@
 %figure;histogram(data(:,2))
 data=[];
 
-% CONFIGURE
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-05'; 
-filenames=[dir(fullfile(date_path, '*50552*.h5'))]
+%% CONFIGURE
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51120';
+
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
 Fignum=1096;
 
 % REMOVE ZERO

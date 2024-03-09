@@ -2,10 +2,13 @@
 %figure;plot(data(:,2))
 %figure;histogram(data(:,2))
 clear
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-07'; 
-filenames=[dir(fullfile(date_path, '*51050*.h5'))];
-%signal=36*6/2;  % two ions
-%noise=1.5*6;
+
+%% CONFIGURE
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51127';
+
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
 
 num_ca=1;
 signal_per_ion=140;
@@ -17,6 +20,7 @@ remove_on=0;
 remove_threshold=100;
 
 
+%% THRESHOLDING
 threshold=signal_per_ion/log(1+signal_per_ion/noise);
 %threshold2=170;
 threshold2=sqrt(2)*signal_per_ion*1;

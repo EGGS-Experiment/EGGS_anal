@@ -1,11 +1,23 @@
 %% LINEWIDTH MEASUREMENT (397nm)
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-07'; 
-filenames=[dir(fullfile(date_path, '*51046*.h5'))];
-clear data
-data=[];
+
+%% CONFIGURE
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51122';
+
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
+
 fitfunc='g'; % g: gaussian fit; b: beta fit;
 rf=19.057;
 Fignum=1025;
+
+
+%% PROCESS
+% create data structures
+clear data
+data=[];
+
+% import data
 % 1st: no. of repetition; 2nd: AOM freq; 3rd: LIF
 for i=1:max(size(filenames))
     file = fullfile(date_path, filenames(i).name); 
@@ -14,6 +26,7 @@ for i=1:max(size(filenames))
     data=[data; data1'];
 end
 
+% 
 ion_on_all=data(data(:,2)==1,:);
 ion_off_all=data(data(:,2)==0,:);       
 LIF_on=ion_on_all(:,3);

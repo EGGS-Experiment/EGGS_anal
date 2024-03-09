@@ -2,15 +2,18 @@
 %Use this code when you Ion Spectrum Analyzer
 %with single sideband values, a single readout time, multiple secular frequency values and one
 %detuning i.e. on resonance.
-%good for phase sweep
+
 % clear
 %figure;plot(data(:,2))
 %figure;histogram(data(:,2))
 data=[];
 
-% configure
-date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-07'; 
-filenames=[dir(fullfile(date_path, '*51044*.h5'))];
+%% CONFIGURE
+date_path = '\\eric.physics.ucla.edu\groups\motion\Data\2024-03\2024-03-08'; 
+rid_dj = '51120';
+
+rid_str = strcat('*', rid_dj, '*.h5');
+filenames=[dir(fullfile(date_path, rid_str))];
 Fignum=1098;
 
 % REMOVE ZERO
